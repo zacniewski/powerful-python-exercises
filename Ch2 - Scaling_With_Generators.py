@@ -48,5 +48,23 @@ for line in matching:
     print(line)
 
 
-def house_records():
-    pass
+def house_records(lines):
+    record = {}
+    for line in lines:
+        if line == '':
+            yield record
+            record = {}
+            continue
+        key, value = line.split(': ', 1)
+        record[key] = value
+    yield record
+
+
+def house_records_from_file(path):
+    lines = lines_from_file(path)
+    for house in house_records(lines):
+        yield house
+
+
+for house in house_records_from_file('housedata.txt'):
+    print(house["address"])
