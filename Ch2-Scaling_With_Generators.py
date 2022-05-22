@@ -68,3 +68,28 @@ def house_records_from_file(path):
 
 for house in house_records_from_file('housedata.txt'):
     print(house["address"])
+
+# Recap built-in functions with generators
+numbers = [1, 2, 3, 4]
+bigger_numbers = [1000, 1200, 2000, 5000]
+
+
+def even(number: int) -> bool:
+    return number % 2 == 0
+
+
+# mapping
+even_numbers = map(even, numbers)
+for en in even_numbers:
+    print(en)
+
+
+# filtering
+filtered_numbers = filter(lambda x: x > 1500, bigger_numbers)
+for fn in filtered_numbers:
+    print(fn)
+
+# zipping
+zipped = zip(numbers, bigger_numbers)
+for z in zipped:
+    print(z)
