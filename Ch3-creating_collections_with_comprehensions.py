@@ -24,3 +24,24 @@ print(numbers_2_or_3)
 
 many_squares = (n * n for n in range(NUM_SQUARES))
 print(f"{type(many_squares)=}")
+
+
+class Student:
+    def __init__(self, name, gpa, major):
+        self.name = name
+        self.gpa = gpa
+        self.major = major
+
+
+students = [Student('John Doe', 3.9, 'Computer Science'),
+            Student('Elize Johns', 4.2, 'Economics'),
+            Student('Alan Parker', 4.0, 'Economics')
+            ]
+
+# Dict comprehension
+dict_comp = {student.name: student.major for student in students}
+print(f"{dict_comp=}")
+
+# Set comprehension
+set_comp = {student.name for student in students}
+print(f"{set_comp=}")
