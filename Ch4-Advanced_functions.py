@@ -12,3 +12,11 @@ print(f"{some_foo=}")
 
 print(takes_any_args(1, 2))
 print(takes_any_args([1, 2]))
+
+
+def normal_function(a, b, c):
+    print(f"{a=}, {b=}, {c=}")
+
+
+some_numbers = (3, 6, 7)
+normal_function(*some_numbers)
