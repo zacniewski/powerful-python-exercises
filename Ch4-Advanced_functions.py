@@ -20,3 +20,31 @@ def normal_function(a, b, c):
 
 some_numbers = (3, 6, 7)
 normal_function(*some_numbers)
+
+
+# args and kwargs together
+def addup(a, b, c=1, d=2, e=3):
+    return a + b + c + d + e
+
+
+nums = (3, 4)
+extras = {'d': 55, 'e': 66}
+
+print(addup(*nums, **extras))
+
+some_items = [3, -5, 1, -23, 2, 4]
+
+
+def max_by_key(items, key):
+    biggest = items[0]
+    for item in items[1:]:
+        if key(item) > key(biggest):
+            biggest = item
+    return biggest
+
+
+print(max_by_key(some_items, abs))
+
+
+class Student:
+    pass
