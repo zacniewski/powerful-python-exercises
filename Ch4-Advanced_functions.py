@@ -1,3 +1,6 @@
+from operator import attrgetter
+
+
 def foo(a, b, x=2, y=3):
     return (a+b) / (x+y)
 
@@ -47,4 +50,20 @@ print(max_by_key(some_items, abs))
 
 
 class Student:
-    pass
+    def __init__(self, name, major, gpa):
+        self.name = name
+        self.major = major
+        self.gpa = gpa
+
+    def __repr__(self):
+        return f"{self.name}: {self.gpa}"
+
+
+student_objs = [
+    Student("John Doe", "CS", 4.2),
+    Student("Adam Smith", "Physics", 3.8),
+    Student("Betty Boo", "Economics", 3.9)
+]
+
+sorted_by_gpa = sorted(student_objs, key=attrgetter('gpa'))
+print(sorted_by_gpa)
