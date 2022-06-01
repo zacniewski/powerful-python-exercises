@@ -7,17 +7,16 @@ def find_all(sum_dig, digs):
     number_of_possible_numbers = 0
     current_sum = 0
 
-    # for number in range(10**(digs-1), 10**digs):
-    for number in range(123, 125):
+    for number in range(10**(digs-1), 10**digs):
         temp = number
         while temp > 0:
             last_before = temp % 10
-            current_sum += last_before
             temp = temp // 10
             last_after = temp % 10
             if last_after <= last_before:
-                print(f"{temp=}")
-                current_sum += last_after
+                current_sum += last_before
+                if current_sum > sum_dig:
+                    break
             else:
                 current_sum = 0
                 break
@@ -36,4 +35,4 @@ def find_all(sum_dig, digs):
 
 
 if __name__ == '__main__':
-    print(find_all(6, 3))
+    print(find_all(35, 6))
